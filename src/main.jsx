@@ -1,17 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import AddCofee from './components/AddCoffee'
+import UpdateCoffee from './components/UpdateCoffee'
+import App from './App'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <h1>This is root</h1>,
+    element: <App></App>,
     children: [
       {
-        
+        path: 'addCoffee',
+        element: <AddCofee></AddCofee>
+      },
+      {
+        path: 'updateCoffee',
+        element: <UpdateCoffee></UpdateCoffee>
       }
     ]
   }
@@ -19,6 +26,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </React.StrictMode>,
 )
