@@ -3,8 +3,12 @@ import { Link, Outlet } from "react-router-dom";
 const App = () => {
 
   const links = <>
-    <li><a>Navbar Item 1</a></li>
-    <li><a>Navbar Item 2</a></li>
+    <li>
+      <Link to="/addCoffee">Add Coffee</Link>
+    </li>
+    <li>
+      <Link to="/">Home</Link>
+    </li>
   </>
 
   return (

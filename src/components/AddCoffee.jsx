@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2'
+
 
 const AddCofee = () => {
 
@@ -12,11 +14,37 @@ const AddCofee = () => {
         const details = form.category.value;
         const photoURL = form.photoURL.value;
         console.log(name, quantity, suppiler, taste, category, details, photoURL);
+
+        const newCoffee = {
+            name, quantity, suppiler, taste, category, details, photoURL
+        }
+
+        fetch('http://localhost:5555/coffee', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newCoffee)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'User added succesfully',
+                showConfirmButton: false,
+                timer: 1500
+              })
+        })
+        .catch(err => {
+            console.log(err);
+        })
     }
 
 
     return (
-        <div className="flex flex-col items-center justify-center bg-base-300 py-10">
+        <div className="flex flex-col items-center justify-center bg-base-200 py-10 px-4">
             <h1 className="text-3xl font-bold my-8">Add Coffee</h1>
             <form onSubmit={handleAddCoffee} className="w-full md:w-2/3 mx-auto">
                 {/* Name */}
@@ -85,7 +113,7 @@ const AddCofee = () => {
                 {/* submit button */}
                 <div className="form-control w-full mt-8">
                     <label className="input-group">
-                        <input name="submit" type="submit" value="Add New" className="input input-bordered w-full bg-orange-500 text-white" />
+                        <input name="submit" type="submit" value="Add New" className="input input-bordered w-full bg-orange-500 text-white hover:cursor-pointer hover:bg-orange-600" />
                     </label>
                 </div>
             </form>
