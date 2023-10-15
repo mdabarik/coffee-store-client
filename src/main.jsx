@@ -20,7 +20,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5555/all')
+        loader: () => fetch('https://coffe-store-server-i5oa0h9ho-mdabarik.vercel.app/all')
       },
       {
         path: '/addCoffee',
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       {
         path: '/updateCoffee/:id',
         element: <UpdateCoffee></UpdateCoffee>,
-        loader: ({ params }) => fetch(`http://localhost:5555/coffee/${params.id}`)
+        loader: ({ params }) => fetch(`https://coffe-store-server-i5oa0h9ho-mdabarik.vercel.app/coffee/${params.id}`)
       },
       {
         path: '/signup',
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       {
         path: '/user',
         element: <Users></Users>,
-        loader: ({ params }) => fetch('http://localhost:5555/user')
+        loader: ({ params }) => fetch('https://coffe-store-server-i5oa0h9ho-mdabarik.vercel.app/user')
       }
     ]
   }
