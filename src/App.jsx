@@ -9,7 +9,21 @@ const App = () => {
     <li>
       <Link to="/">Home</Link>
     </li>
+    <li>
+      <Link to="/user">Users</Link>
+    </li>
+    <li>
+      <Link to="/signup">Sign Up</Link>
+    </li>
+    <li>
+      <Link to="/signin">Sign In</Link>
+    </li>
   </>
+
+// <NavLink to="/">Home</NavLink>
+// <NavLink to="/user">Users</NavLink>
+// <NavLink to="/signup">Signup</NavLink>
+// <NavLink to="/signin">Sign In</NavLink>
 
   return (
     <div className="drawer">
